@@ -1,7 +1,12 @@
 RaphAlytics - Advanced line charts for Raphael
 =========
 
-Line chart generator based on the Analytics example from the RaphaelJS framework, with added functionality and options.
+Line chart generator based on the Analytics (http://raphaeljs.com/analytics.html) example 
+from the RaphaelJS (http://raphaeljs.com) framework, with added functionality and options.
+
+This library expands the functionality exhibited in the example by allowing multiple
+lines on the same chart as well as other customization options making it usable in
+nearly any situation you can imagine.
 
 Changelog
 ---------
