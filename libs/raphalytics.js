@@ -213,7 +213,7 @@ function drawLineChart(paper,data,labels,tooltips,options)
 								function ()
 								{
 									frame.hide();
-									label[0].hide();
+									label[0].hide(); 
 									is_label_visible = false;
 								},
 								1000
