@@ -25,7 +25,7 @@ Raphael.fn.drawGrid = function (x, y, w, h, wv, hv, type, color)
     return this.path(path.join(",")).attr({stroke: color});
 };
 
-function drawLineChart(paper,data,labels,tooltips,options)
+function raphalytics(paper,data,labels,tooltips,options)
 {
     function getAnchors(p1x, p1y, p2x, p2y, p3x, p3y)
     {
@@ -240,7 +240,7 @@ function drawLineChart(paper,data,labels,tooltips,options)
 
 };
 
-Raphael.fn.drawLineChart =function(data,labels,tooltips,options)
+Raphael.fn.raphalytics =function(data,labels,tooltips,options)
 {
-    return new drawLineChart(this,data,labels,tooltips,options);
+    return new raphalytics(this,data,labels,tooltips,options);
 }

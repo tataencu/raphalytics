@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RaphAlytics</title>
+        <script src="../libs/raphael-min.js"></script>
+        <script src="../libs/popup.js"></script>
+        <script src="../libs/raphalytics.js"></script>
+		<script type='text/javascript'>
+			window.onload=function () {
+			    var r=Raphael('holder');
+				
+			    var labels = ['1st','2nd','3rd','4th'],
+					labelsLong = ['First tooltip','Tooltip no. 2','Another tooltip','Last tooltip'],
+					data = [11,212,123,453];
+
+				r.raphalytics(data,labels,labelsLong,{'width':800,'height':500,'gridtype':'full_grid','fill':true,'color':'#f0f'});
+			}
+		</script>
+        <style type="text/css" media="screen">
+            #holder {
+                height: 600px;
+                width: 800px;
+            }
+        </style>
+    </head>
+    <body>
+         <div id="holder"></div>
+    </body>
+</html>
