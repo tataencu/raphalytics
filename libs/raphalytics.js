@@ -1,17 +1,17 @@
 Raphael.fn.drawGrid = function (x, y, w, h, wv, hv, type, color)
 {
-    color = color || "#000";
+	color = color || "#000";
 	type= type || 'full_grid';
-    var path = ["M", Math.round(x) + .5, Math.round(y) + .5, "L", Math.round(x + w) + .5, Math.round(y) + .5, Math.round(x + w) + .5, Math.round(y + h) + .5, Math.round(x) + .5, Math.round(y + h) + .5, Math.round(x) + .5, Math.round(y) + .5],
-        rowHeight = h / hv,
-        columnWidth = w / wv;
+	var path = ["M", Math.round(x) + .5, Math.round(y) + .5, "L", Math.round(x + w) + .5, Math.round(y) + .5, Math.round(x + w) + .5, Math.round(y + h) + .5, Math.round(x) + .5, Math.round(y + h) + .5, Math.round(x) + .5, Math.round(y) + .5],
+		rowHeight = h / hv,
+		columnWidth = w / wv;
 		
 	if (type=='y_grid' || type=='full_grid')
 	{
-	    for (var i = 1; i < hv; i++)
+		for (var i = 1; i < hv; i++)
 		{
-	        path = path.concat(["M", Math.round(x) + .5, Math.round(y + i * rowHeight) + .5, "H", Math.round(x + w) + .5]);
-	    }
+			path = path.concat(["M", Math.round(x) + .5, Math.round(y + i * rowHeight) + .5, "H", Math.round(x + w) + .5]);
+		}
 	}
 
 	if (type=='x_grid' || type=='full_grid')
@@ -22,28 +22,28 @@ Raphael.fn.drawGrid = function (x, y, w, h, wv, hv, type, color)
 		}
 	}
 	
-    return this.path(path.join(",")).attr({stroke: color});
+	return this.path(path.join(",")).attr({stroke: color});
 };
 
 function drawLineChart(paper,data,labels,tooltips,options)
 {
-    function getAnchors(p1x, p1y, p2x, p2y, p3x, p3y)
+	function getAnchors(p1x, p1y, p2x, p2y, p3x, p3y)
 	{
-        var l1 = (p2x - p1x) / 2,
-            l2 = (p3x - p2x) / 2,
-            a = Math.atan((p2x - p1x) / Math.abs(p2y - p1y)),
-            b = Math.atan((p3x - p2x) / Math.abs(p2y - p3y));
+		var l1 = (p2x - p1x) / 2,
+			l2 = (p3x - p2x) / 2,
+			a = Math.atan((p2x - p1x) / Math.abs(p2y - p1y)),
+			b = Math.atan((p3x - p2x) / Math.abs(p2y - p3y));
 			
-        a = p1y < p2y ? Math.PI - a : a;
-        b = p3y < p2y ? Math.PI - b : b;
+		a = p1y < p2y ? Math.PI - a : a;
+		b = p3y < p2y ? Math.PI - b : b;
 		
-        var alpha = Math.PI / 2 - ((a + b) % (Math.PI * 2)) / 2,
-            dx1 = l1 * Math.sin(alpha + a),
-            dy1 = l1 * Math.cos(alpha + a),
-            dx2 = l2 * Math.sin(alpha + b),
-            dy2 = l2 * Math.cos(alpha + b);
+		var alpha = Math.PI / 2 - ((a + b) % (Math.PI * 2)) / 2,
+			dx1 = l1 * Math.sin(alpha + a),
+			dy1 = l1 * Math.cos(alpha + a),
+			dx2 = l2 * Math.sin(alpha + b),
+			dy2 = l2 * Math.cos(alpha + b);
 			
-        return {x1: p2x - dx1, y1: p2y + dy1, x2: p2x + dx2, y2: p2y + dy2};
+		return {x1: p2x - dx1, y1: p2y + dy1, x2: p2x + dx2, y2: p2y + dy2};
 	}
 	
 	if (typeof data[0] !== 'object')
@@ -67,26 +67,26 @@ function drawLineChart(paper,data,labels,tooltips,options)
 		}
 	}
 
-    var width = options.width || 750,
-        height = options.height || 300,
-        leftgutter = options.leftgutter || 30,
-        bottomgutter = options.bottomgutter || 20,
-        topgutter = options.topgutter || 20,
+	var width = options.width || 750,
+		height = options.height || 300,
+		leftgutter = options.leftgutter || 30,
+		bottomgutter = options.bottomgutter || 20,
+		topgutter = options.topgutter || 20,
 		fill = options.fill || false,
 		gridtype = options.gridtype || 'full_grid',
 		gridcolor = options.gridcolor || '#bbb',
-        color = options.color || '#2F69BF',
+		color = options.color || '#2F69BF',
 		tooltipcolor = options.tooltipcolor || '#000',
 		tooltipbordercolor = options.tooltipbordercolor || '#666',
 		tooltiptextcolor = options.tooltiptextcolor || '#fff',
 		labelcolor = options.labelcolor || '#000',
-        txt = {font: '12px Helvetica, Arial', fill: "#fff"},
-        txt1 = {font: '10px Helvetica, Arial', fill: "#fff"},
-        txt2 = {font: '12px Helvetica, Arial', fill: "#000"},
-        X = (width - leftgutter) / labels.length,
-        Y = (height - bottomgutter - topgutter) / max_value;
+		txt = {font: '12px Helvetica, Arial', fill: "#fff"},
+		txt1 = {font: '10px Helvetica, Arial', fill: "#fff"},
+		txt2 = {font: '12px Helvetica, Arial', fill: "#000"},
+		X = (width - leftgutter) / labels.length,
+		Y = (height - bottomgutter - topgutter) / max_value;
 		
-    paper.drawGrid(leftgutter + X * .5 + .5, topgutter + .5, width - leftgutter - X, height - topgutter - bottomgutter, labels.length-1, 10, gridtype, gridcolor);
+	paper.drawGrid(leftgutter + X * .5 + .5, topgutter + .5, width - leftgutter - X, height - topgutter - bottomgutter, labels.length-1, 10, gridtype, gridcolor);
 
 	if (typeof color != 'object')
 	{
@@ -150,14 +150,14 @@ function drawLineChart(paper,data,labels,tooltips,options)
 			
 			if (i && i < ii - 1)
 			{
-	            var Y0 = Math.round(height - bottomgutter - Y * data[j][i - 1]),
-	                X0 = Math.round(leftgutter + X * (i - .5)),
-	                Y2 = Math.round(height - bottomgutter - Y * data[j][i + 1]),
-	                X2 = Math.round(leftgutter + X * (i + 1.5));
+				var Y0 = Math.round(height - bottomgutter - Y * data[j][i - 1]),
+					X0 = Math.round(leftgutter + X * (i - .5)),
+					Y2 = Math.round(height - bottomgutter - Y * data[j][i + 1]),
+					X2 = Math.round(leftgutter + X * (i + 1.5));
 					
-	            var a = getAnchors(X0, Y0, x, y, X2, Y2);
+				var a = getAnchors(X0, Y0, x, y, X2, Y2);
 				
-	            p = p.concat([a.x1, a.y1, x, y, a.x2, a.y2]);
+				p = p.concat([a.x1, a.y1, x, y, a.x2, a.y2]);
 				
 				if (fill)
 				{
@@ -234,9 +234,9 @@ function drawLineChart(paper,data,labels,tooltips,options)
 		}
 	}
 
-    frame.toFront();
-    label[0].toFront();
-    blanket.toFront();
+	frame.toFront();
+	label[0].toFront();
+	blanket.toFront();
 
 };
 
