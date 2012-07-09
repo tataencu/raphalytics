@@ -11,6 +11,12 @@ nearly any situation you can imagine.
 Changelog
 ---------
 
+**v0.2**
+
+* Added Y values to the chart
+* `normalize` options to make the Y axis values multiples of 10
+
+
 **v0.1**
 
 * Multi-line charts
