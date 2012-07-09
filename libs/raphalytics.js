@@ -107,14 +107,14 @@ function raphalytics(paper,data,labels,tooltips,options)
     label.hide();
     frame = paper.popup(100, 100, label, "right").attr({fill: tooltipcolor, stroke: tooltipbordercolor, "stroke-width": 2, "fill-opacity": .7}).hide();
 
-	//Y labels
-	var value=0;
-	for (i=0;i<=10;i++)
-	{
-		value=i*Math.round(max_value/10);
-		value=value.toString();
-		paper.text(leftgutter + X * .5 - 4*value.length,height-bottomgutter-i*Math.round((height - topgutter - bottomgutter)/10),value).attr(txt).attr({fill:labelcolor}).toFront();
-	}
+    //Y labels
+    var value=0;
+    for (i=0;i<=10;i++)
+    {
+        value=i*Math.round(max_value/10);
+        value=value.toString();
+        paper.text(leftgutter + X * .5 - 4*value.length,height-bottomgutter-i*Math.round((height - topgutter - bottomgutter)/10),value).attr(txt).attr({fill:labelcolor}).toFront();
+    }
 
     //X labels
     for (var i=0, ii=labels.length;i<ii;i++)
