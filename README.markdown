@@ -14,14 +14,14 @@ Changelog
 **v0.3**
 
 * Bug fixes. Closes issues #1 and #2
-* Added a new grid type, minimalist, which is now the default type
+* Added a new grid type, `minimalist`, which is now the default type
 * The number of Y values is now customizable and defaults to 2
-* The position of Y values is customizable, outside or inside the graph. Default: inside
-* The existance of the Y label for value '0' is now customizable. Default: TRUE
-* Changed normalization algorythm. Normalization is now TRUE by default
-* Added gridbordercolor and gridbordertype elements
-* 3 types of grid border: full, minimalist and xoy
-* rightgutter option now added, in addition to top, bottom and left.
+* The position of Y values is customizable, outside or inside the graph. Default: `inside`
+* The existance of the Y label for value '0' is now customizable. Default: `TRUE`
+* Changed normalization algorythm. Default: `TRUE`
+* Added `gridbordercolor` and `gridbordertype` elements
+* 3 types of grid border: `full`, `minimalist` and `xoy`
+* `rightgutter` option now added, in addition to top, bottom and left.
 * Changed the default height from 300px to 150px
 
 
