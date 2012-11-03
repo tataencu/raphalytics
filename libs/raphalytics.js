@@ -155,7 +155,7 @@ function raphalytics(paper,data,labels,tooltips,options)
 	
 	label.push(paper.text(60, 12, tooltips[0][0]).attr(txt).attr({fill: tooltiptextcolor}));
 	label.hide();
-	frame = paper.popup(100, 100, label, "right").attr({fill: tooltipcolor, stroke: tooltipbordercolor, "stroke-width": 2, "fill-opacity": .7}).hide();
+	paper.frame = paper.popup(100, 100, label, "right").attr({fill: tooltipcolor, stroke: tooltipbordercolor, "stroke-width": 2, "fill-opacity": .7}).hide();
 
 	//Draw lines
 	for (var j=0, jj=data.length; j<jj; j++)
@@ -258,7 +258,7 @@ function raphalytics(paper,data,labels,tooltips,options)
 							
 							var side = "right";
 							
-							if (x + frame.getBBox().width > width)
+							if (x + paper.frame.getBBox().width > width)
 							{
 								side = "left";
 							}
@@ -272,9 +272,9 @@ function raphalytics(paper,data,labels,tooltips,options)
 							lx = label[0].transform()[0][1] + ppp.dx;
 							ly = label[0].transform()[0][2] + ppp.dy;
 							
-							frame.show().stop().animate(anim);
+							paper.frame.show().stop().animate(anim);
 							
-							label[0].attr({text: tooltip}).show().stop().animateWith(frame, anim, {transform: ["t", lx, ly]}, 200 * is_label_visible);
+							label[0].attr({text: tooltip}).show().stop().animateWith(paper.frame, anim, {transform: ["t", lx, ly]}, 200 * is_label_visible);
 							
 							dot.attr("r", 6);
 							is_label_visible = true;
@@ -286,7 +286,7 @@ function raphalytics(paper,data,labels,tooltips,options)
 							leave_timer = setTimeout(
 								function ()
 								{
-									frame.hide();
+									paper.frame.hide();
 									label[0].hide();
 									is_label_visible = false;
 								},
@@ -349,7 +349,7 @@ function raphalytics(paper,data,labels,tooltips,options)
 		}
 	}
 
-    frame.toFront();
+    paper.frame.toFront();
     label[0].toFront();
     blanket.toFront();
 
